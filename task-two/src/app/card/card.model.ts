@@ -3,7 +3,7 @@ export interface Item {
     title: String;
     description: String;
     isNoIndex?: Boolean;
-    category: Category[];
+    category: Category;
 }
 
 export interface Category {

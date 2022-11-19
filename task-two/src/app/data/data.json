@@ -1,0 +1,24 @@
+[
+    {
+        "url": "https://www.google.com",
+        "title": "<seo_title>",
+        "description": "<seo_description>",
+        "isNoIndex": true,
+        "category": {
+          "1": "<L1_category>",
+          "2": "<L2_category>",
+          "n": "<Ln_category>"
+        }
+      },
+      {
+        "url": "<url>",
+        "title": "<seo_title>",
+        "description": "<seo_description>",
+        "isNoIndex": false,
+        "category": {
+          "1": "<L1_category>",
+          "2": "<L2_category>",
+          "n": "<Ln_category>"
+        }
+      }
+]
