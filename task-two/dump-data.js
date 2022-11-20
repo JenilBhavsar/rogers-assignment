@@ -28,7 +28,7 @@ var config = {
 axios(config)
 .then(function (response) {
     const preparedData = prepareData(response.data.data.pageTemplateCollection.items)
-    console.log(preparedData)
+    generateFile(preparedData)
 })
 .catch(function (error) {
   console.log(error);
@@ -52,5 +52,9 @@ const prepareData = (data) => {
         const isNoIndex = d.seo && d.seo.isNoIndex ? d.seo.isNoIndex : null
         return { url, title, description, category, isNoIndex }
     })
+}
+
+const generateFile = (data) => {
+    fs.writeFileSync("./src/app/data/data.json", JSON.stringify(data, null, 2))
 }
 
