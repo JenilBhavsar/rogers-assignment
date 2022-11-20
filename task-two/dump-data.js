@@ -1,4 +1,5 @@
 var axios = require('axios');
+const fs = require('fs')
 var data = JSON.stringify({
   query: `query GetData{
                 pageTemplateCollection{
@@ -37,7 +38,8 @@ const prepareData = (data) => {
     return data.map((d) => {
         let url = `https://www.rogers.com${d.url}`
         url = url.replace('/home','')
-        return { url }
+        let title = d.seo && d.seo.title ? d.seo.title.replace('| Rogers', '- Rogers') : ''
+        return { url, title }
     })
 }
 
