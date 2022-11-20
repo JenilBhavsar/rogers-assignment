@@ -39,7 +39,8 @@ const prepareData = (data) => {
         let url = `https://www.rogers.com${d.url}`
         url = url.replace('/home','')
         let title = d.seo && d.seo.title ? d.seo.title.replace('| Rogers', '- Rogers') : ''
-        return { url, title }
+        let description = d.seo && d.seo.description ? d.seo.description.length > 80 ? d.seo.description.substring(0, 80): d.seo.description : ''
+        return { url, title, description }
     })
 }
 
