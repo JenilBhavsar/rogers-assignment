@@ -26,8 +26,18 @@ var config = {
 
 axios(config)
 .then(function (response) {
-  console.log(JSON.stringify(response.data.data));
+    const preparedData = prepareData(response.data.data.pageTemplateCollection.items)
+    console.log(preparedData)
 })
 .catch(function (error) {
   console.log(error);
 });
+
+const prepareData = (data) => {
+    return data.map((d) => {
+        let url = `https://www.rogers.com${d.url}`
+        url = url.replace('/home','')
+        return { url }
+    })
+}
+
