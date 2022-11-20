@@ -40,7 +40,17 @@ const prepareData = (data) => {
         url = url.replace('/home','')
         let title = d.seo && d.seo.title ? d.seo.title.replace('| Rogers', '- Rogers') : ''
         let description = d.seo && d.seo.description ? d.seo.description.length > 80 ? d.seo.description.substring(0, 80): d.seo.description : ''
-        return { url, title, description }
+        let category = d.url.replace('/home','').split('/')
+        category.shift()
+        category = category.map(u => {
+            return u.charAt(0).toUpperCase() + u.slice(1)
+        });
+        category = category.reduce((r, it, i) => {
+            r[i] = it
+            return r
+        },{})
+        const isNoIndex = d.seo && d.seo.isNoIndex ? d.seo.isNoIndex : null
+        return { url, title, description, category, isNoIndex }
     })
 }
 
