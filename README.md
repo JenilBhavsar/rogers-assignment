@@ -8,5 +8,13 @@ Directory - `task-one`
 
 Directory - `task-two`
 
+### To Execute:
+```bash
+cd task-two
+npm install
+npm run start
+# Open development site on http://localhost:4200/
+```
+
 ### Author
 Jenil Bhavsar
